@@ -1,0 +1,346 @@
+* {
+    box-sizing: border-box;
+    font-family: 'nunito sans', sans-serif;
+}
+
+
+body {
+    --dark-text-color: hsl(200, 15%, 8%);
+    --dark-element-color: rgb(255, 254, 254);;
+    --light-background-color: hsl(0, 0%, 98%);
+    margin: 0;
+    color: var(--dark-text-color);
+    background-color: var(--light-background-color);
+}
+body.dark{
+    --dark-text-color: hsl(0, 0%, 100%);
+    --dark-element-color: hsl(209, 23%, 22%);
+    --light-background-color: hsl(207, 26%, 17%);
+}
+
+header {
+    box-shadow: 0px 1px 8px -1px #504f4f61;
+    padding: 1rem 2rem;
+    background-color: var(--dark-element-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.head-sec {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin-inline: auto;
+    color: var(--dark-text-color);
+}
+
+.head-sec>span {
+    font-weight: 700;
+    font-size: 1.75em;
+}
+
+.head-sec .mode {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: capitalize;
+}
+
+.head-sec .mode i {
+    font-size: 1.25em;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+main {
+    padding-inline: 2rem;
+}
+
+.all-cards-section {
+    max-width: 1300px;
+    margin-top: 48px;
+    margin-inline: auto;
+    display: flex;
+    gap: 4rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.country-card {
+    margin-bottom: 2rem;
+    width: 250px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 1px 1px 7px 1px rgba(86, 86, 86, 0.217);
+    display: inline-block;
+    background-color: var(--dark-element-color);
+    color: var(--dark-text-color);
+}
+
+.country-card img {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+}
+
+.country-card .card-text {
+    margin-inline: 1.25rem;
+    padding-bottom: 30px;
+}
+
+.card-text p {
+    margin-block: 8px;
+}
+
+.card-text h3 {
+    font-weight: 800;
+    font-size: 20px;
+}
+
+
+.search-and-filter-container {
+    max-width: 1300px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3.5rem;
+    gap: 2em;
+}
+
+.search-conatiner {
+    padding: 1rem;
+    width: 36%;
+    box-shadow: 2px 2px 8px rgba(33, 33, 33, 0.211);
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 320px;
+    background-color: var(--dark-element-color);
+}
+
+.search-conatiner i {
+    padding-inline: .25em;
+    font-size: 1.25em;
+    font-weight: 700;
+    color: hsl(0, 0%, 52%)
+}
+.search-conatiner input {
+    width: 100%;
+    font-size: 1.25em;
+    font-weight: 500;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    color: hsl(0, 0%, 52%);
+    background-color: inherit;
+}
+
+.filter-btn{
+    box-shadow: 2px 2px 8px rgba(33, 33, 33, 0.211);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    background-color: var(--dark-element-color);
+    color: var(--dark-text-color);
+}
+.filter-container{
+    width: 200px;
+    position: relative;
+}
+
+.filter-btn span {
+    font-size: 1em;
+    min-width: max-content;
+    font-weight: 600;
+}
+
+.filter-btn i {
+    font-size: 1.5rem;
+    transition: all .4s ease;
+}
+
+.filter-btn i.rotate {
+    transform: rotate(180deg);
+}
+
+.filter-options {
+   position: absolute;
+   width: 100%;
+   min-height: 190px;
+   overflow: hidden;
+   border-radius: 4px;
+}
+
+.filter-options .overlay{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+    padding-block: 18px;
+    position: absolute;
+    top: -100%;
+    height: 200px;
+    
+    transition: all .3s ease-out;
+}
+
+
+.overlay span{
+    padding-inline:24px;
+    padding-block: 4px;
+    transition: all .3s ease-out;
+}
+.filter-options span:hover{
+    background-color: rgba(185, 225, 201, 0.398);
+    cursor: pointer;
+}
+.overlay.drop-down{
+    top: 0;
+    height: 100%;
+    margin-top: 4px;
+    background-color: rgb(249, 254, 251);
+}
+
+.overlay.drop-down.dark{
+    background-color: var(--dark-element-color);
+    color: var(--dark-text-color);
+}
+
+.error{
+    text-align: center;
+    margin-block: 6rem;
+    background-color: rgba(255, 0, 0, 0.144);
+    width: fit-content;
+    margin-inline: auto;
+    padding: .25rem 1rem;
+    border-radius: 4px;
+    display: none;
+}
+.error i{
+    font-size: 2.5rem;
+    /* font-weight: 500; */
+    color: red;
+}
+
+.error span{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgba(238, 0, 0, 0.659);
+}
+
+.error.show-error-msg{
+    display: block;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+@media (max-width: 756px) {
+    .search-and-filter-container {
+        align-items: flex-start;
+        margin-top: 2rem;
+        gap: 2.5em;
+        flex-direction: column;
+    }
+    .search-conatiner {
+        width: 100%;
+        min-width: unset;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 650px) {
+    .all-cards-section {
+        justify-content: center;
+    }
+
+    .head-sec>span {
+        font-size: 1.25em;
+    }
+    .head-sec .mode {
+        gap: 4px;
+    }
+    
+    .head-sec .mode i {
+        font-size: 1em;
+    }
+    .search-conatiner input {
+        font-size: 18px;
+    }
+
+    .error i{
+        font-size: 1.5rem;
+    }
+    
+    .error span{
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .head-sec .mode label {
+        display: none;
+    }
+    .head-sec .mode i {
+        font-size: 1.25em;
+    }
+
+    .filter-container{
+        width: 85%;
+    }
+    .filter-btn span {
+        min-width: unset;
+    }
+}
+
+
+
+/* skeleton loading effect */
+
+@keyframes sleleton-loading {
+    0%{
+        background-color: hsl(200, 20%, 70%);
+    }
+
+    100%{
+        background-color: hsl(200, 20%, 95%);
+    }
+}
+.img-loading{
+    width: 100%;
+    height: 150px;
+    animation: sleleton-loading 1s linear infinite alternate;
+}
+
+.loading-country-name{
+    width: 50%;
+    height: 16px;
+    margin-block: 36px;
+    border-radius: 4px;
+    animation: sleleton-loading 1s linear infinite alternate;
+}
+
+.loading-other-details{
+    width: 90%;
+    height: 8px;
+    border-radius: 2px;
+    animation: sleleton-loading 1s linear infinite alternate;
+}
+
+
+.full-card-loading{
+    height:330px;
+    margin-bottom: 2rem;
+}
