@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import './country.css'
+import { useParams } from "react-router-dom";
 
 const CountryDetails = () => {
 
     const [countryData, setCountryData] = useState(null)
 
-    const params = new Proxy(new URLSearchParams(window.location.search), {
-        get: (searchParams, prop) => searchParams.get(prop), // get country name from the url
-    });
-    let value = params.name;
-
+    const params = useParams()
+    const countryName = params.country
+    console.log(params);
 
     useEffect(() => {
-        fetch(`https://restcountries.com/v3.1/name/${value}?fullText=true`)
+
+        fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
             .then((res) => res.json())
             .then(([data]) => {
                 setCountryData({
@@ -29,16 +29,15 @@ const CountryDetails = () => {
                     currency: Object.values(data.currencies)[0].name,
                     symbol: Object.values(data.currencies)[0].symbol,
                     lang: Object.values(data.languages).join(', '),
+                    borders: ['india']
                 }
                 )
             })
     }, [])
 
-    console.log(countryData);
-
     return (
-       countryData && (<main className="country-main">
-            <button className="back-btn"><span><i className='bx bx-arrow-back'></i>back</span></button>
+        countryData && (<main className="country-main">
+            <button onClick={() => history.back()} className="back-btn"><span><i className='bx bx-arrow-back'></i>back</span></button>
 
             <div className="country-info-container">
 
