@@ -1,0 +1,17 @@
+.shimmer-card {
+    height: 320px;
+    animation: sleleton-loading 1s linear infinite alternate;
+}
+
+
+/* skeleton loading effect */
+
+@keyframes sleleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 70%);
+    }
+
+    100% {
+        background-color: hsl(200, 20%, 95%);
+    }
+}
