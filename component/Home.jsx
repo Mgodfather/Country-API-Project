@@ -1,12 +1,13 @@
 import { useState } from 'react'
-import CountriesList from './countriesList'
+import CountriesList from './CountriesList'
 import SearchBar from './SearchBar'
 import SelectMenu from './SelectMenu'
-
+import { ThemeContext } from '../contexts/themeContext'
+import { useContext } from 'react'
 
 export default function Home() {
     const [query, setQuery] = useState('')
-
+    const [isDark] = useContext(ThemeContext)
     function clickEventHandel() {
       document.querySelector('.overlay').classList.toggle('drop-down')
       let dropDownIconRotate = document.querySelector("div.filter-container > div.filter-btn > i")
@@ -14,7 +15,7 @@ export default function Home() {
     }
     return (
         <>
-            <main>
+            <main className={`${isDark ? 'dark' : ''}`}>
                 <div className="error">
                     <i className="bx bx-error-circle"></i>
                     <span>country not found</span>

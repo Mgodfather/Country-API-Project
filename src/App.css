@@ -12,7 +12,13 @@ body {
     color: var(--dark-text-color);
     background-color: var(--light-background-color);
 }
-body.dark{
+
+main, header{
+    color: var(--dark-text-color);
+    background-color: var(--light-background-color);
+}
+
+main.dark, header.dark{
     --dark-text-color: hsl(0, 0%, 100%);
     --dark-element-color: hsl(209, 23%, 22%);
     --light-background-color: hsl(207, 26%, 17%);
@@ -21,6 +27,9 @@ body.dark{
 header {
     box-shadow: 0px 1px 8px -1px #504f4f61;
     padding: 1rem 2rem;
+    position: sticky;
+    z-index: 100;
+    width: 100%;
     background-color: var(--dark-element-color);
 }
 
@@ -103,12 +112,13 @@ main {
 
 
 .search-and-filter-container {
+    padding-top: 3.5rem;
     max-width: 1300px;
     margin-inline: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 3.5rem;
+    /* margin-top: 3.5rem; */
     gap: 2em;
 }
 
@@ -250,7 +260,7 @@ main {
 @media (max-width: 756px) {
     .search-and-filter-container {
         align-items: flex-start;
-        margin-top: 2rem;
+        padding-top: 2rem;
         gap: 2.5em;
         flex-direction: column;
     }
