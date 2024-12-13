@@ -2,17 +2,19 @@ import { useState } from 'react'
 import CountriesList from './CountriesList'
 import SearchBar from './SearchBar'
 import SelectMenu from './SelectMenu'
-import { ThemeContext } from '../contexts/themeContext'
-import { useContext } from 'react'
+import {useTheme} from '../hooks/useTheme'
 
 export default function Home() {
     const [query, setQuery] = useState('')
-    const [isDark] = useContext(ThemeContext)
+    const[isDark] = useTheme()
+    
     function clickEventHandel() {
-      document.querySelector('.overlay').classList.toggle('drop-down')
-      let dropDownIconRotate = document.querySelector("div.filter-container > div.filter-btn > i")
-      dropDownIconRotate.classList.toggle('rotate')
+        document.querySelector('.overlay').classList.toggle('drop-down')
+        let dropDownIconRotate = document.querySelector("div.filter-container > div.filter-btn > i")
+        dropDownIconRotate.classList.toggle('rotate')
     }
+    
+    
     return (
         <>
             <main className={`${isDark ? 'dark' : ''}`}>

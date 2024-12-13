@@ -1,13 +1,13 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import './country.css'
 import { Link, useParams, useLocation } from "react-router-dom";
-import { ThemeContext } from "../contexts/themeContext";
+import {useTheme} from "../hooks/useTheme";
 
 const CountryDetails = () => {
 
     const { state } = useLocation()
-    const [isDark] = useContext(ThemeContext)
+    const [isDark] = useTheme()
 
     const [countryData, setCountryData] = useState(null)
 
