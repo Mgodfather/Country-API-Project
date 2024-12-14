@@ -8,10 +8,11 @@ export default function Home() {
     const [query, setQuery] = useState('')
     const[isDark] = useTheme()
     
-    function clickEventHandel() {
+    function clickEventHandel(e) {
         document.querySelector('.overlay').classList.toggle('drop-down')
         let dropDownIconRotate = document.querySelector("div.filter-container > div.filter-btn > i")
         dropDownIconRotate.classList.toggle('rotate')
+        console.log(e.target);
     }
     
     
@@ -24,7 +25,7 @@ export default function Home() {
                 </div>
                 <section className="search-and-filter-container">
                     <SearchBar setQuery={setQuery} />
-                    <SelectMenu dropDownMenu={clickEventHandel} />
+                    <SelectMenu dropDownMenu={clickEventHandel} setQuery={setQuery}/>
                 </section>
                 <CountriesList query={query} />
             </main>

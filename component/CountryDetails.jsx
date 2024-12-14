@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import './country.css'
 import { Link, useParams, useLocation } from "react-router-dom";
-import {useTheme} from "../hooks/useTheme";
+import { useTheme } from "../hooks/useTheme";
 
 const CountryDetails = () => {
 
@@ -18,10 +18,10 @@ const CountryDetails = () => {
     function updateCountryData(data) {
         setCountryData({
             flag: data.flags.svg,
-            commonName: data.name.common,
+            commonName: data?.name.common,
             nativeName: Object.values(data.name)[1],
-            population: data.population,
-            region: data.region,
+            population: data?.population,
+            region: data?.region,
             subregion: data?.subregion,
             capital: data?.capital,
             maps: data.maps.googleMaps,
@@ -36,7 +36,7 @@ const CountryDetails = () => {
             data.borders = []
         }
 
-        Promise.all(data.borders.map((border) => {
+        Promise.all(data?.borders.map((border) => {
             return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
                 .then((res) => res.json())
                 .then(([borderData]) => borderData.name.common)
@@ -62,9 +62,8 @@ const CountryDetails = () => {
     }, [countryName])
 
 
-
     return (
-        countryData && (<main className={`${isDark ? 'dark' : ''}`}> 
+        countryData && (<main className={`${isDark ? 'dark' : ''}`}>
             <section className="country-main">
                 <button onClick={() => history.back()} className="back-btn"><span><i className='bx bx-arrow-back'></i>back</span></button>
 
@@ -73,21 +72,21 @@ const CountryDetails = () => {
                     <img src={countryData.flag} alt={countryData?.flags?.png} />
 
                     <section className="country-details-section">
-                        <h3>{countryData.commonName}</h3>
+                        <h3>{countryData?.commonName}</h3>
 
                         <p className="details-card">
                             <span>
-                                <b>native name: </b>{countryData.nativeName}
+                                <b>native name: </b>{countryData?.nativeName}
                             </span>
                             <span><b>population: </b>{countryData?.population?.toLocaleString('en-IN')}</span>
-                            <span><b>region: </b>{countryData.region}</span>
-                            <span><b>sub region: </b>{countryData.subregion}</span>
-                            <span><b>capital: </b>{countryData.capital}</span>
-                            <span><b>maps: </b><a href={countryData.map} target="_blank">open in map</a>, <a href={countryData.streetView} target="_blank">open street view</a></span>
-                            <span><b>currencies: </b>{countryData.currency} ({countryData.symbol})</span>
-                            <span><b>languages: </b>{countryData.lang}</span>
+                            <span><b>region: </b>{countryData?.region}</span>
+                            <span><b>sub region: </b>{countryData?.subregion}</span>
+                            <span><b>capital: </b>{countryData?.capital}</span>
+                            <span><b>maps: </b><a href={countryData?.map} target="_blank">open in map</a>, <a href={countryData?.streetView} target="_blank">open street view</a></span>
+                            <span><b>currencies: </b>{countryData?.currency} ({countryData?.symbol})</span>
+                            <span><b>languages: </b>{countryData?.lang}</span>
                         </p>
-                        {countryData.borders.length !== 0 && <div className="other-countries-links-container">
+                        {countryData?.borders?.length !== 0 && <div className="other-countries-links-container">
                             <b>Border countries:</b>
                             <div className="border-box-container">
                                 {

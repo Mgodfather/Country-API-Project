@@ -6,19 +6,22 @@
 
 body {
     --dark-text-color: hsl(200, 15%, 8%);
-    --dark-element-color: rgb(255, 254, 254);;
+    --dark-element-color: rgb(255, 254, 254);
+    ;
     --light-background-color: hsl(0, 0%, 98%);
     margin: 0;
     color: var(--dark-text-color);
     background-color: var(--light-background-color);
 }
 
-main, header{
+main,
+header {
     color: var(--dark-text-color);
     background-color: var(--light-background-color);
 }
 
-main.dark, header.dark{
+main.dark,
+header.dark {
     --dark-text-color: hsl(0, 0%, 100%);
     --dark-element-color: hsl(209, 23%, 22%);
     --light-background-color: hsl(207, 26%, 17%);
@@ -73,10 +76,9 @@ main {
     max-width: 1300px;
     margin-top: 48px;
     margin-inline: auto;
-    display: flex;
-    gap: 4rem;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .country-card {
@@ -142,6 +144,7 @@ main {
     font-weight: 700;
     color: hsl(0, 0%, 52%)
 }
+
 .search-conatiner input {
     width: 100%;
     font-size: 1.25em;
@@ -153,7 +156,7 @@ main {
     background-color: inherit;
 }
 
-.filter-btn{
+.filter-btn {
     box-shadow: 2px 2px 8px rgba(33, 33, 33, 0.211);
     padding: 1rem;
     display: flex;
@@ -166,7 +169,8 @@ main {
     background-color: var(--dark-element-color);
     color: var(--dark-text-color);
 }
-.filter-container{
+
+.filter-container {
     width: 200px;
     position: relative;
 }
@@ -187,14 +191,15 @@ main {
 }
 
 .filter-options {
-   position: absolute;
-   width: 100%;
-   min-height: 190px;
-   overflow: hidden;
-   border-radius: 4px;
+    position: absolute;
+    width: 100%;
+    min-height: 190px;
+    overflow: hidden;
+    /* z-index: -1; */
+    border-radius: 4px;
 }
 
-.filter-options .overlay{
+.filter-options .overlay {
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -203,33 +208,34 @@ main {
     position: absolute;
     top: -100%;
     height: 200px;
-    
     transition: all .3s ease-out;
 }
 
 
-.overlay span{
-    padding-inline:24px;
+.overlay span {
+    padding-inline: 24px;
     padding-block: 4px;
     transition: all .3s ease-out;
 }
-.filter-options span:hover{
+
+.filter-options span:hover {
     background-color: rgba(185, 225, 201, 0.398);
     cursor: pointer;
 }
-.overlay.drop-down{
+
+.overlay.drop-down {
     top: 0;
     height: 100%;
     margin-top: 4px;
     background-color: rgb(249, 254, 251);
 }
 
-.overlay.drop-down.dark{
+.overlay.drop-down.dark {
     background-color: var(--dark-element-color);
     color: var(--dark-text-color);
 }
 
-.error{
+.error {
     text-align: center;
     margin-block: 6rem;
     background-color: rgba(255, 0, 0, 0.144);
@@ -239,24 +245,26 @@ main {
     border-radius: 4px;
     display: none;
 }
-.error i{
+
+.error i {
     font-size: 2.5rem;
     /* font-weight: 500; */
     color: red;
 }
 
-.error span{
+.error span {
     font-size: 2.5rem;
     font-weight: 700;
     color: rgba(238, 0, 0, 0.659);
 }
 
-.error.show-error-msg{
+.error.show-error-msg {
     display: block;
     display: flex;
     align-items: center;
     gap: 16px;
 }
+
 @media (max-width: 756px) {
     .search-and-filter-container {
         align-items: flex-start;
@@ -264,6 +272,7 @@ main {
         gap: 2.5em;
         flex-direction: column;
     }
+
     .search-conatiner {
         width: 100%;
         min-width: unset;
@@ -279,22 +288,24 @@ main {
     .head-sec>span {
         font-size: 1.25em;
     }
+
     .head-sec .mode {
         gap: 4px;
     }
-    
+
     .head-sec .mode i {
         font-size: 1em;
     }
+
     .search-conatiner input {
         font-size: 18px;
     }
 
-    .error i{
+    .error i {
         font-size: 1.5rem;
     }
-    
-    .error span{
+
+    .error span {
         font-size: 1.5rem;
     }
 }
@@ -303,17 +314,16 @@ main {
     .head-sec .mode label {
         display: none;
     }
+
     .head-sec .mode i {
         font-size: 1.25em;
     }
 
-    .filter-container{
+    .filter-container {
         width: 85%;
     }
+
     .filter-btn span {
         min-width: unset;
     }
 }
-
-
-

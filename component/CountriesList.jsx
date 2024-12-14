@@ -19,7 +19,7 @@ export default function CountriesList({ query }) {
         <>
             {!CountriesData.length ? <CountryListShimmer /> :
                 <section className="all-cards-section">{
-                    CountriesData.filter((e) => (e.name.common.toLowerCase().includes(query)))
+                    CountriesData.filter((e) => (e.name.common.toLowerCase().includes(query) || e.region.toLowerCase().includes(query)))
                         .map((e) =>
                             <CountryCard
                                 key={e.name.common}
